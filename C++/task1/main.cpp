@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include "utils.h"
+
+using namespace std;
+
+int main() {
+    cout << "Метод хорд:" << endl;
+    double x_max = 2;
+    double x_min = -2;
+
+    double b = x_max;
+    double a = b - 0.3;
+    double eps = pow(10, -4);
+    
+    while (a >= x_min) {
+        if (f(a) * f(b) < 0) {  // интервал с корнем
+            chord_method(a, b, eps);
+        }
+        b = a;
+        a -= 0.3;
+    }
+}
