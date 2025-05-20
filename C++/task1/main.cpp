@@ -33,4 +33,8 @@ int main() {
         b = a;
         a -= 0.3;
     }
+
+    cout << "\nМетод простых итераций:" << endl;
+    double x0 = 1.5;
+    simpleIteration(x0, eps, true);
 }

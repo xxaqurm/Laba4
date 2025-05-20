@@ -92,3 +92,21 @@ void newton_method(double x, double eps) {
         }
     } while (fabs(x - x_prev) >= eps);
 }
+
+double phiPositive(double x) {
+    return sqrt(3 * sin(x));
+}
+
+void simpleIteration(double x0, double eps, bool positive) {
+    cout << "N\tx_prev\tx_next\t|x_next - x_prev|" << endl;
+    
+    double x = x0;
+    double x_prev;
+
+    int iters = 0;
+    do {
+        x_prev = x;
+        x = phiPositive(x_prev);
+        cout << fixed << setprecision(4) << ++iters << "\t" << x_prev << "\t" << x << "\t" << fabs(x - x_prev) << endl;
+    } while (fabs(x - x_prev) > eps);
+}
