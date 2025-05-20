@@ -21,4 +21,16 @@ int main() {
         b = a;
         a -= 0.3;
     }
+
+    cout << "\nМетод Ньютона:" << endl;
+    b = x_max;
+    a = b - 0.3;
+    while (a >= x_min) {
+        if (f(a) * f(b) < 0) {
+            double initialGuess = findInitialGuess(a, b);
+            newton_method(initialGuess, eps);
+        }
+        b = a;
+        a -= 0.3;
+    }
 }

@@ -70,3 +70,25 @@ void chord_method(double a, double b, double eps) {
         }
     }
 }
+
+double findInitialGuess(double a, double b) {
+    for (double x = a; x <= b; x += pow(10, -4)) {
+        if (f(x) * ddf(x) > 0) {
+            return x;
+        }
+    }
+}
+
+void newton_method(double x, double eps) {
+    cout << "N\tx_prev\tx_next\t|x_next - x_prev|" << endl;
+    double x_prev;
+    int iters = 0;
+    do {
+        x_prev = x;
+        x = x_prev - f(x_prev) / df(x_prev);
+        cout << fixed << setprecision(4) << ++iters << "\t" << x_prev << "\t" << x << "\t" << fabs(x - x_prev) << endl;
+        if (fabs(x - x_prev) < eps) {
+            return;
+        }
+    } while (fabs(x - x_prev) >= eps);
+}
