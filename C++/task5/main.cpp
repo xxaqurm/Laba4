@@ -16,7 +16,6 @@ int main() {
     mt19937 gen(rd());
     uniform_int_distribution<> cntRounds(100, 200);
     uniform_int_distribution<> algorithmNum(0, 2);
-    uniform_int_distribution<> whoStarts(0, 1);
 
     map<int, string> algorithmNames = {
         {0, "every23"},
@@ -58,15 +57,6 @@ int main() {
 
         pointsFirst += POINTS[moveFirst][moveSecond];
         pointsSecond += POINTS[moveSecond][moveFirst];
-
-        if (i % 10 == 0) {
-            cout << "Round " << i + 1 << ": " << endl;
-            cout << algorithmNames[firstAlgorithm] << ": " << moveFirst << endl;
-            cout << "Points: " << pointsFirst << endl;
-            cout << algorithmNames[secondAlgorithm] << ": " << moveSecond << endl;
-            cout << "Points: " << pointsSecond << endl;
-            cout << "--------------------------" << endl;
-        }
     }
 
     if (pointsFirst > pointsSecond) {

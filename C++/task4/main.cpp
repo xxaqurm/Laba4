@@ -51,10 +51,18 @@ int main() {
     }
 
     string winnerBord = bordaMethod(candidates, voters);
-    cout << "Победитель по методу Борда: " << winnerBord << endl;
+    if (winnerBord == "NONE") {
+        cout << "Победитель по методу Борда не выявлен." << endl;
+    } else {
+        cout << "Победитель по методу Борда: " << winnerBord << endl;
+    }
 
     string winnerCondorcet = condorcetMethod(candidates, voters);
-    cout << "Победитель по методу Конкордета: " << winnerCondorcet << endl;
+    if (winnerCondorcet == "NONE") {
+        cout << "Победитель по методу Кондорсе не выявлен." << endl;
+    } else {
+        cout << "Победитель по методу Конкордета: " << winnerCondorcet << endl;
+    }
 
     if (winnerBord != winnerCondorcet) {
         cout << "\nПобедители по разным алгоритмам различаются." << endl;

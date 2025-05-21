@@ -1,6 +1,7 @@
 #include <random>
 #include <vector>
 #include <locale>
+#include <iostream>
 #include "programs.h"
 
 using namespace std;
@@ -13,7 +14,7 @@ vector<double> genDoubleVector() {
     uniform_int_distribution<int> distInt(10, 1000);
     uniform_real_distribution<double> distDouble(-100.0, 100.0);
 
-    vector<double> arr(distInt(gen));
+    vector<double> arr(10);
     for (int i = 0; i < arr.size(); i++) {
         arr[i] = distDouble(gen);
     }
@@ -46,6 +47,7 @@ pair<double, double> processPosNeg(vector<double> arr) {  // {sum, mult}
             maxElement = elm;
         }
     }
+    cout << "Максимальный элемент массива: " << maxElement << endl;
 
     double sumPositive = 0;
     double multNegative = 1;
@@ -110,7 +112,6 @@ void arrayMixing(vector<int>& arr) {
     knuth_b gen;
     gen.seed();
 
-    uniform_int_distribution<int> digits(0, 9);
 
     for (int i = 0; i < arr.size(); i++) {
         vector<int> digits = extractDigits(arr[i]);
@@ -129,7 +130,6 @@ void arrayMixing(vector<int>& arr) {
             newNum = newNum * 10 + elm;
         }
         newNum *= sign;
-
         arr[i] = newNum;
     }
 }

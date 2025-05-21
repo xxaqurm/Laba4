@@ -37,4 +37,7 @@ int main() {
     cout << "\nМетод простых итераций:" << endl;
     double x0 = 1.5;
     simpleIteration(x0, eps, true);
+
+    x0 = 0.5;
+    simpleIteration(x0, eps, false);
 }
